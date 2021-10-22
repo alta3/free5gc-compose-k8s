@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pcf
+  labels:
+    5gapp: pcf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: pcf
+  template:
+    metadata:
+      labels:
+        5gapp: pcf
+    spec:
+      containers:
+      - name: pcf
+        image: oss.registry/free5gc-compose-k8s_free5gc-pcf
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/pcfcfg.yaml
+          subPath: pcfcfg.yaml
+        env:
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./pcf -pcfcfg ../config/pcfcfg.yaml
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+          name: pcf
+      volumes:
+      - name: config
+        configMap:
+          name: pcfcfg
