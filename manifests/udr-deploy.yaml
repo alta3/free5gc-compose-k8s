@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udr
+  labels:
+    5gapp: udr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: udr
+  template:
+    metadata:
+      labels:
+        5gapp: udr
+    spec:
+      containers:
+      - name: udr
+        image: oss.registry/free5gc-compose-k8s_free5gc-udr
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/udrcfg.yaml
+          subPath: udrcfg.yaml
+        env:
+        - name: DB_URI
+          value: mongodb://db/free5gc
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./udr -udrcfg ../config/udrcfg.yaml
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+          name: udr
+      volumes:
+      - name: config
+        configMap:
+          name: udrcfg
