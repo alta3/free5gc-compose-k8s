@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udm
+  labels:
+    5gapp: udm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: udm
+  template:
+    metadata:
+      labels:
+        5gapp: udm
+    spec:
+      containers:
+      - name: udm
+        image: oss.registry/free5gc-compose-k8s_free5gc-udm
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/udmcfg.yaml
+          subPath: udmcfg.yaml
+        env:
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./udm -udmcfg ../config/udmcfg.yaml
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+          name: udm
+      volumes:
+      - name: config
+        configMap:
+          name: udmcfg
