@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: upfb
-        image: oss.registry/free5gc-compose-k8s_free5gc-upfb
+        image: oss.registry/free5gc-compose-k8s_free5gc-upf-b
         securityContext:
           capabilities:
             add:

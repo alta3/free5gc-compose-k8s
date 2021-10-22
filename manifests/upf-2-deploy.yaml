@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: upf2
-        image: oss.registry/free5gc-compose-k8s_free5gc-upf2
+        image: oss.registry/free5gc-compose-k8s_free5gc-upf-2
         securityContext:
           capabilities:
             add:
