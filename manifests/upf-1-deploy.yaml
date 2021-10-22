@@ -21,7 +21,7 @@ spec:
           capabilities:
             add:
             - NET_ADMIN
-        volumneMounts:
+        volumeMounts:
         - name: config
           mountPath: /free5gc/config/upfcfg.yaml
           subPath: upfcfg.yaml
