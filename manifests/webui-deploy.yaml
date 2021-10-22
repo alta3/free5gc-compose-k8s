@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webui
@@ -10,6 +10,9 @@ spec:
     matchLabels:
       5gapp: webui
   template:
+    metadata:
+      labels:
+        5gapp: webui
     spec:
       containers:
       - name: webui
