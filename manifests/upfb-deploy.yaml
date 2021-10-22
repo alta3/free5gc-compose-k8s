@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upfb
+  labels:
+    5gapp: upfb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: upfb
+  template:
+    metadata:
+      labels:
+        5gapp: upfb
+    spec:
+      containers:
+      - name: upfb
+        image: oss.registry/free5gc-compose-k8s_free5gc-upfb
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        volumneMounts:
+        - name: config
+          mountPath: /free5gc/config/upfcfg.yaml
+          subPath: upfcfg.yaml
+        command:
+        - ./free5gc-upfd -f ../config/upfcfg.yaml
+      volumes:
+      - name: config
+        configMap:
+          name: upfbcfg
