@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    5gapp: db 
+  name: db
+  namespace: default
+spec:
+  ports:
+  - port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    5gapp: db
+  sessionAffinity: None
+  type: ClusterIP
