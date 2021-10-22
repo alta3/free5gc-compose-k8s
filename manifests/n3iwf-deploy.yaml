@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: n3iwf
+  labels:
+    5gapp: n3iwf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: n3iwf
+  template:
+    metadata:
+      labels:
+        5gapp: n3iwf
+    spec:
+      containers:
+      - name: n3iwf
+        image: oss.registry/free5gc-compose-k8s_free5gc-n3iwf
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/n3iwfcfg.yaml
+          subPath: n3iwfcfg.yaml
+        volumeMounts:
+        - name: conf2
+          mountPath: /free5gc/n3iwf/n3iwf-ipsec.sh
+          subPath: n3iwf-ipsec.sh
+        env:
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./n3iwf
+      volumes:
+        - name: config
+          configMap:
+            name: n3iwfcfg
+        - name: conf2
+          configMap:
+            name: n3iwf-ipsec
+      securityContext:
+        capabilities:
+          add:
+          - NET_ADMIN
