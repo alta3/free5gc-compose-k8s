@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ausf
+  labels:
+    5gapp: ausf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: ausf
+  template:
+    metadata:
+      labels:
+        5gapp: ausf
+    spec:
+      containers:
+      - name: ausf
+        image: oss.registry/free5gc-compose-k8s_free5gc-ausf
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/ausfcfg.yaml
+          subPath: ausfcfg.yaml
+        env:
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./ausf -ausfcfg ../config/ausfcfg.yaml
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+          name: ausf
+      volumes:
+      - name: config
+        configMap:
+          name: ausfcfg
