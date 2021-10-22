@@ -1,4 +1,8 @@
-# Free5GC Compose
+# Free5GC Compose K8s
+
+This repository is a fork of the [free5gc-compose](https://github.com/free5gc/free5gc-compose) repo. It extends the docker-compose deployment capability by also providing the instructions and manifests to run the containers in a Kubernetes cluster.
+
+## Original Compose Documentation
 
 This repository is a docker compose version of [free5GC](https://github.com/free5gc/free5gc) for stage 3. It's inspire by [free5gc-docker-compose](https://github.com/calee0219/free5gc-docker-compose) and also reference to [docker-free5GC](https://github.com/abousselmi/docker-free5gc).
 
