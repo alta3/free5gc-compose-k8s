@@ -17,6 +17,10 @@ spec:
       containers:
       - name: upf1
         image: oss.registry/free5gc-compose-k8s_free5gc-upf1
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
         volumneMounts:
         - name: config
           mountPath: /free5gc/config/upfcfg.yaml
@@ -27,7 +31,3 @@ spec:
       - name: config
         configMap:
           name: upf1cfg
-      securityContext:
-        capabilities:
-          add:
-          - NET_ADMIN
