@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: webui
-        image: oss.registry/free5gc-compose_free5gc-webui
+        image: oss.registry/free5gc-compose-k8s_free5gc-webui
         volumeMounts:
         - name: config
           mountPath: /free5gc/config/webuicfg.yaml
