@@ -21,6 +21,9 @@ spec:
         - name: config
           mountPath: /free5gc/config/smfcfg.yaml
           subPath: smfcfg.yaml
+        - name: config2
+          mountPath: /free5gc/config/uerouting.yaml
+          subPath: uerouting.yaml
         env:
         - name: GIN_MODE
           value: release
@@ -34,3 +37,6 @@ spec:
       - name: config
         configMap:
           name: smfcfg
+      - name: config2
+        configMap:
+          name: uerouting
