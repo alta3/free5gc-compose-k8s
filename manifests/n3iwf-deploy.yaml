@@ -17,6 +17,10 @@ spec:
       containers:
       - name: n3iwf
         image: oss.registry/free5gc-compose-k8s_free5gc-n3iwf
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
         volumeMounts:
         - name: config
           mountPath: /free5gc/config/n3iwfcfg.yaml
@@ -37,7 +41,3 @@ spec:
         - name: conf2
           configMap:
             name: n3iwf-ipsec
-      securityContext:
-        capabilities:
-          add:
-          - NET_ADMIN
