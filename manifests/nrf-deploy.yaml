@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nrf
+  labels:
+    5gapp: nrf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: nrf
+  template:
+    metadata:
+      labels:
+        5gapp: nrf
+    spec:
+      containers:
+      - name: nrf
+        image: oss.registry/free5gc-compose-k8s_free5gc-nrf
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/nrfcfg.yaml
+          subPath: nrfcfg.yaml
+        env:
+        - name: DB_URI
+          value: mongodb://db/free5gc
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./nrf -nrfcfg ../config/nrfcfg.yaml
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+          name: nrf
+      volumes:
+      - name: config
+        configMap:
+          name: nrfcfg
