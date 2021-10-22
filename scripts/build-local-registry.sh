@@ -22,6 +22,8 @@ location / {
 }
 EOF
 sudo nginx -s reload
+echo "Waiting for changes to take effect"
+sleep 5
 OUTPUT=`curl oss.registry/v2/_catalog`
 echo "OUTPUT = $OUTPUT"
 [[ "$OUTPUT" == '{"repositories":[]}' ]] && echo 'SUCCESS' || echo 'That did not work'
