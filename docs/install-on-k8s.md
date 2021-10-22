@@ -13,3 +13,6 @@
 
     `$` `cd ~/free5gc-compose-k8s/scripts && bash build-local-registry.sh`
 
+0. Run the script to push the images to your local docker registry
+
+    `$` `cd ~/free5gc-compose-k8s/scripts && bash tag-and-push.sh` 
