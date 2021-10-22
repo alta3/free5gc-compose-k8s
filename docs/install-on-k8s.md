@@ -1,6 +1,13 @@
 # How to Install the Free 5G Core on Kubernetes
 
-1. Install pre-reqs as listed on the README.md file of this repo
+## Install pre-reqs as listed on the README.md file of this repo and build the images
+1. Install pre-reqs
+
+    `$` `cd ~/free5gc-compose-k8s/scripts && bash pre-reqs.sh`
+
+0. Build docker images
+
+    `$` `cd ~/free5gc-compose-k8s/scripts && bash build-images.sh`
 
 0. Create a local docker registry
 
