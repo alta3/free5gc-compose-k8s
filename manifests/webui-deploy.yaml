@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: webui
+  labels:
+    5gapp: webui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: webui
+  template:
+    spec:
+      containers:
+      - name: webui
+        image: oss.registry/free5gc-compose_free5gc-webui
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/webuicfg.yaml
+          subPath: webuicfg.yaml
+        env:
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./webui
+      volumes:
+        - name: config
+          configMap:
+            name: webuicfg
