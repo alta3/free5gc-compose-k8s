@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db 
+  labels:
+    5gapp: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: db
+  template:
+    metadata:
+      labels:
+        5gapp: db
+    spec:
+      containers:
+      - name: db
+        image: mongo
+        volumeMounts:
+        - name: config
+          mountPath: /data/db
+        ports:
+        - containerPort: 27017
+          protocol: TCP
+          name: mongoport
+      volumes:
+        - name: config
+          emptyDir: {}
