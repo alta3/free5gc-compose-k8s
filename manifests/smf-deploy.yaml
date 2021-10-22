@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smf
+  labels:
+    5gapp: smf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      5gapp: smf
+  template:
+    metadata:
+      labels:
+        5gapp: smf
+    spec:
+      containers:
+      - name: smf
+        image: oss.registry/free5gc-compose-k8s_free5gc-smf
+        volumeMounts:
+        - name: config
+          mountPath: /free5gc/config/smfcfg.yaml
+          subPath: smfcfg.yaml
+        env:
+        - name: GIN_MODE
+          value: release
+        command:
+        - ./smf -smfcfg ../config/smfcfg.yaml -uerouting ../config/uerouting.yaml
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+          name: smf
+      volumes:
+      - name: config
+        configMap:
+          name: smfcfg
