@@ -33,6 +33,7 @@ Due to the UPF issue, the host must be using kernel `5.0.0-23-generic`. And it s
 On you host OS:
 ```
 git clone https://github.com/PrinzOwO/gtp5g.git
+sudo apt install make gcc -y
 cd gtp5g
 make
 sudo make install
