@@ -25,7 +25,7 @@
 
     0. Run the first k8s install script
 
-        `#` `cd ~/free5gc-compose-k8s/scripts && bash k8s-install-01.sh`
+        `#` `cd /home/student/free5gc-compose-k8s/scripts && bash k8s-install-01.sh`
 
     0. Stop being root
 
@@ -35,9 +35,10 @@
 
         `$` ` cd ~/free5gc-compose-k8s/scripts && bash k8s-install-02.sh`
 
+0. For reasons not yet determined, k8s will NOT read http based imgages with restarting containerd, therefore, restart containerd
+
+    `student@oss:~/free5gc-compose-k8s/scripts$` `sudo systemctl restart containerd`
+
 0. Now, you should be able to start up all of the Free 5G Core on Kubernetes.
 
     `$` `kubectl apply -f ~/free5g-compose-k8s/manifests/`
-
-
-   
