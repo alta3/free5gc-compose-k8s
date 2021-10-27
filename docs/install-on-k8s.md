@@ -1,7 +1,16 @@
 # How to Install the Free 5G Core on Kubernetes
 
 ## Install pre-reqs as listed on the README.md file of this repo and build the images
-1. Install pre-reqs
+
+1. ssh to oss
+
+   - [ ] `$` 
+
+0. Clone this repository
+
+    `git clone https://github.com/alta3/free5gc-compose-k8s.git`
+
+0. Install pre-reqs
 
     `$` `cd ~/free5gc-compose-k8s/scripts && bash pre-reqs.sh`
 
