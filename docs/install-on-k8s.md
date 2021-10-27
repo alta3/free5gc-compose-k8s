@@ -4,11 +4,11 @@
 
 1. ssh to oss
 
-   - [ ] `$` 
+   `$`  `ssh oss`
 
 0. Clone this repository
 
-    `git clone https://github.com/alta3/free5gc-compose-k8s.git`
+    `$` `git clone https://github.com/alta3/free5gc-compose-k8s.git`
 
 0. Install pre-reqs
 
@@ -50,4 +50,5 @@
 
 0. Now, you should be able to start up all of the Free 5G Core on Kubernetes.
 
-    `$` `kubectl apply -f ~/free5g-compose-k8s/manifests/`
+    `$` `kubectl apply -f ~/free5gc-compose-k8s/manifests/`
+   
