@@ -14,10 +14,10 @@ data:
       debugLevel: info
     
       pfcp:
-        - addr: upf2.free5gc.org
+        - addr: upf2.default.svc.cluster.local
     
       gtpu:
-        - addr: upf2.free5gc.org
+        - addr: upf2.default.svc.cluster.local
         # [optional] gtpu.name
         # - name: upf.5gc.nctu.me
         # [optional] gtpu.ifname

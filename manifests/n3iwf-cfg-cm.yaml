@@ -39,12 +39,12 @@ data:
                         112233
       AMFSCTPAddresses: # the IP list of N2 interfaces (SCTP) on AMF when using NGAP
         - IP:
-          - amf.free5gc.org
+          - amf.default.svc.cluster.local
 
 
       # --- Bind Interfaces ---
       IKEBindAddress: # IP address of Nwu interface (IKE) on this N3IWF
-        n3iwf.free5gc.org
+        127.0.0.1
 
       IPSecInterfaceAddress: # IP address of IPSec virtual interface (IPsec tunnel enpoint on this N3IWF)
         10.0.0.1
@@ -53,13 +53,13 @@ data:
         5
 
       GTPBindAddress: # IP address of N3 interface (GTP) on this N3IWF
-        n3iwf.free5gc.org
+        127.0.0.1
 
       NASTCPPort: # TCP port which the NAS listens on
         20000
 
       FQDN: # FQDN of this N3IWF
-        n3iwf.free5gc.org
+        n3iwf.default.svc.cluster.local
 
 
       # --- Security ---

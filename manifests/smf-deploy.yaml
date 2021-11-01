@@ -28,7 +28,12 @@ spec:
         - name: GIN_MODE
           value: release
         command:
-        - ./smf -smfcfg ../config/smfcfg.yaml -uerouting ../config/uerouting.yaml
+        - /free5gc/smf/smf
+        args:
+        - -smfcfg
+        - /free5gc/config/smfcfg.yaml
+        - -uerouting
+        - /free5gc/config/uerouting.yaml
         ports:
         - containerPort: 8000
           protocol: TCP

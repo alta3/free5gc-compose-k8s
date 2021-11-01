@@ -33,7 +33,7 @@ spec:
         - name: GIN_MODE
           value: release
         command:
-        - ./n3iwf
+        - /free5gc/n3iwf/n3iwf
       volumes:
         - name: config
           configMap:

@@ -13,8 +13,8 @@ data:
       smfName: SMF # the name of this SMF
       sbi: # Service-based interface information
         scheme: http # the protocol for sbi (http or https)
-        registerIPv4: smf.free5gc.org # IP used to register to NRF
-        bindingIPv4: smf.free5gc.org  # IP used to bind the service
+        registerIPv4: smf.default.svc.cluster.local # IP used to register to NRF
+        bindingIPv4: 127.0.0.1  # IP used to bind the service
         port: 8000 # Port used to bind the service
         tls: # the local path of TLS key
           key: free5gc/support/TLS/smf.key # SMF TLS Certificate
@@ -43,7 +43,7 @@ data:
                 ipv6: 2001:4860:4860::8888
               ueSubnet: 10.10.0.0/16 # should be CIDR type
       pfcp: # the IP address of N4 interface on this SMF (PFCP)
-        addr: smf.free5gc.org
+        addr: smf.default.svc.cluster.local
       ulcl: true
       userplane_information: # list of userplane information
         up_nodes: # information of userplane node (AN or UPF)
@@ -51,7 +51,7 @@ data:
             type: AN # the type of the node (AN or UPF)
           BranchingUPF:  # the name of the node
             type: UPF # the type of the node (AN or UPF)
-            node_id: upfb.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+            node_id: upfb.default.svc.cluster.local # the IP/FQDN of N4 interface on this UPF (PFCP)
             sNssaiUpfInfos: # S-NSSAI information list for this UPF
               - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
                   sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -66,15 +66,15 @@ data:
             interfaces: # Interface list for this UPF
               - interfaceType: N3 # the type of the interface (N3 or N9)
                 endpoints: # the IP address of this N3/N9 interface on this UPF
-                  - upfb.free5gc.org
+                  - upfb.default.svc.cluster.local
                 networkInstance: internet # Data Network Name (DNN)
               - interfaceType: N9 # the type of the interface (N3 or N9)
                 endpoints: # the IP address of this N3/N9 interface on this UPF
-                  - upfb.free5gc.org
+                  - upfb.default.svc.cluster.local
                 networkInstance: internet # Data Network Name (DNN)
           AnchorUPF1:  # the name of the node
             type: UPF # the type of the node (AN or UPF)
-            node_id: upf1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+            node_id: upf1.default.svc.cluster.local # the IP/FQDN of N4 interface on this UPF (PFCP)
             sNssaiUpfInfos: # S-NSSAI information list for this UPF
               - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
                   sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -89,15 +89,15 @@ data:
             interfaces: # Interface list for this UPF
               - interfaceType: N3 # the type of the interface (N3 or N9)
                 endpoints: # the IP address of this N3/N9 interface on this UPF
-                  - upf1.free5gc.org
+                  - upf1.default.svc.cluster.local
                 networkInstance: internet # Data Network Name (DNN)
               - interfaceType: N9 # the type of the interface (N3 or N9)
                 endpoints: # the IP address of this N3/N9 interface on this UPF
-                  - upf1.free5gc.org
+                  - upf1.default.svc.cluster.local
                 networkInstance: internet # Data Network Name (DNN)
           AnchorUPF2:  # the name of the node
             type: UPF # the type of the node (AN or UPF)
-            node_id: upf2.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+            node_id: upf2.default.svc.cluster.local # the IP/FQDN of N4 interface on this UPF (PFCP)
             sNssaiUpfInfos: # S-NSSAI information list for this UPF
               - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
                   sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -112,11 +112,11 @@ data:
             interfaces: # Interface list for this UPF
               - interfaceType: N3 # the type of the interface (N3 or N9)
                 endpoints: # the IP address of this N3/N9 interface on this UPF
-                  - upf2.free5gc.org
+                  - upf2.default.svc.cluster.local
                 networkInstance: internet # Data Network Name (DNN)
               - interfaceType: N9 # the type of the interface (N3 or N9)
                 endpoints: # the IP address of this N3/N9 interface on this UPF
-                  - upf2.free5gc.org
+                  - upf2.default.svc.cluster.local
                 networkInstance: internet # Data Network Name (DNN)
         links: # the topology graph of userplane, A and B represent the two nodes of each link
           - A: gNB1
@@ -135,7 +135,7 @@ data:
             ipv4: 8.8.4.4
             ipv6: 2001:4860:4860::8844
       ue_subnet: 60.60.0.0/16
-      nrfUri: http://nrf.free5gc.org:8000 # a valid URI of NRF
+      nrfUri: http://nrf.default.svc.cluster.local:8000 # a valid URI of NRF
     
     # the kind of log output
       # debugLevel: how detailed to output, value: trace, debug, info, warn, error, fatal, panic

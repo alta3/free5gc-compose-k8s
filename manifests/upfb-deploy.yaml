@@ -26,7 +26,10 @@ spec:
           mountPath: /free5gc/config/upfcfg.yaml
           subPath: upfcfg.yaml
         command:
-        - ./free5gc-upfd -f ../config/upfcfg.yaml
+        - /free5gc/free5gc-upfd/free5gc-upfd
+        args:
+        - -f 
+        - /free5gc/config/upfcfg.yaml
       volumes:
       - name: config
         configMap:
