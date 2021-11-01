@@ -11,13 +11,13 @@ data:
     
     configuration:
       # debugLevel: panic|fatal|error|warn|info|debug|trace
-      debugLevel: info
+      debugLevel: trace 
     
       pfcp:
-        - addr: upf1.default.svc.cluster.local
+        - addr: 127.0.0.1 
     
       gtpu:
-        - addr: upf1.default.svc.cluster.local
+        - addr: 127.0.0.1
         # [optional] gtpu.name
         # - name: upf.5gc.nctu.me
         # [optional] gtpu.ifname
@@ -29,6 +29,6 @@ data:
           # [optional] apn_list[*].natifname
           # natifname: eth0
         - dnn: internet2
-          cidr: 10.10.0.0/16
+          cidr: 10.111.1.0/24
           # [optional] apn_list[*].natifname
           # natifname: eth0
