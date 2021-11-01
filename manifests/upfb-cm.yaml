@@ -4,7 +4,7 @@ metadata:
   name: upfbcfg
   namespace: default
 data:
-  upfcfgb.yaml: |
+  upfcfg.yaml: |
     info:
       version: 1.0.0
       description: UPF configuration
@@ -14,10 +14,10 @@ data:
       debugLevel: info
     
       pfcp:
-        - addr: upfb.default.svc.cluster.local
+        - addr: 127.0.0.1 
     
       gtpu:
-        - addr: upfb.default.svc.cluster.local
+        - addr: 127.0.0.1
         # [optional] gtpu.name
         # - name: upf.5gc.nctu.me
         # [optional] gtpu.ifname
