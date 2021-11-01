@@ -27,7 +27,10 @@ spec:
         - name: GIN_MODE
           value: release
         command:
-        - ./udr -udrcfg ../config/udrcfg.yaml
+        - /free5gc/udr/udr
+        args:
+        - -udrcfg
+        - /free5gc/config/udrcfg.yaml
         ports:
         - containerPort: 8000
           protocol: TCP

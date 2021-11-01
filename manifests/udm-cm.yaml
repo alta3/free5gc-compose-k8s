@@ -18,14 +18,14 @@ data:
         - nudm-pp # Nudm_ParameterProvisionDataManagement service
       sbi: # Service-based interface information
         scheme: http # the protocol for sbi (http or https)
-        registerIPv4: udm.free5gc.org # IP used to register to NRF
-        bindingIPv4: udm.free5gc.org  # IP used to bind the service
+        registerIPv4: udm.default.svc.cluster.local ; # IP used to register to NRF
+        bindingIPv4: 127.0.0.1  # IP used to bind the service
         port: 8000 # Port used to bind the service
         tls: # the local path of TLS key
           log: free5gc/udmsslkey.log # UDM keylog
           pem: free5gc/support/TLS/udm.pem # UDM TLS Certificate
           key: free5gc/support/TLS/udm.key # UDM TLS Private key
-      nrfUri: http://nrf.free5gc.org:8000 # a valid URI of NRF
+      nrfUri: http://nrf.default.svc.cluster.local:8000 # a valid URI of NRF
     
       # test data set from TS33501-f60 Annex C.4
       keys:
