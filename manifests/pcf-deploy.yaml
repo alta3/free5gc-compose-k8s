@@ -25,7 +25,10 @@ spec:
         - name: GIN_MODE
           value: release
         command:
-        - ./pcf -pcfcfg ../config/pcfcfg.yaml
+        - /free5gc/pcf/pcf
+        args:
+        - -pcfcfg 
+        - /free5gc/config/pcfcfg.yaml
         ports:
         - containerPort: 8000
           protocol: TCP

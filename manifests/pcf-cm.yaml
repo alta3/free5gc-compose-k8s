@@ -13,8 +13,8 @@ data:
       pcfName: PCF # the name of this PCF
       sbi: # Service-based interface information
         scheme: http # the protocol for sbi (http or https)
-        registerIPv4: pcf.free5gc.org # IP used to register to NRF
-        bindingIPv4: pcf.free5gc.org  # IP used to bind the service
+        registerIPv4: pcf.default.svc.cluster.local # IP used to register to NRF
+        bindingIPv4: 127.0.0.1  # IP used to bind the service
         port: 8000              # port used to bind the service
       timeFormat: 2019-01-02 15:04:05 # time format of this PCF
       defaultBdtRefId: BdtPolicyId-   # BDT Reference ID, indicating transfer policies of background data transfer.
