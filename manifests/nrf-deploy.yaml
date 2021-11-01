@@ -19,15 +19,17 @@ spec:
         image: oss.registry/free5gc-compose-k8s_free5gc-nrf
         volumeMounts:
         - name: config
-          mountPath: /free5gc/config/nrfcfg.yaml
-          subPath: nrfcfg.yaml
+          mountPath: /free5gc/config/
         env:
         - name: DB_URI
           value: mongodb://db/free5gc
         - name: GIN_MODE
           value: release
         command:
-        - ./nrf -nrfcfg ../config/nrfcfg.yaml
+        - /free5gc/nrf/nrf
+        args:
+        - -nrfcfg
+        - /free5gc/config/nrfcfg.yaml
         ports:
         - containerPort: 8000
           protocol: TCP
