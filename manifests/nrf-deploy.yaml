@@ -1,15 +1,16 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nrf
-  labels:
-    5gapp: nrf
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
+apiVersion: apps/v1      # added apps/ before the v1 (api group name)
+kind: Deployment         # Updated to Deployment
+metadata:        ########v
+  name: nrf              # same as with Pod
+  labels:               #^
+    5gapp: nrf   ########
+spec:                   # New detailes
+  replicas: 1           # How many instances of this pod there should be
+  selector:             # How the deployment knows to claim pods (via labels)
+    matchLabels:        
       5gapp: nrf
-  template:
+  template:             # The "Pod Template" section. Everything below this is taken
+                        # directly from our Pod Manifest - just indented
     metadata:
       labels:
         5gapp: nrf
