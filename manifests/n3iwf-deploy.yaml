@@ -22,10 +22,8 @@ spec:
             add:
             - NET_ADMIN
         volumeMounts:
-        - name: config
-          mountPath: /free5gc/config/n3iwfcfg.yaml
-          subPath: n3iwfcfg.yaml
-        volumeMounts:
+        - name: confy
+          mountPath: /free5gc/config/
         - name: conf2
           mountPath: /free5gc/n3iwf/n3iwf-ipsec.sh
           subPath: n3iwf-ipsec.sh
@@ -35,7 +33,7 @@ spec:
         command:
         - /free5gc/n3iwf/n3iwf
       volumes:
-        - name: config
+        - name: confy
           configMap:
             name: n3iwfcfg
         - name: conf2
