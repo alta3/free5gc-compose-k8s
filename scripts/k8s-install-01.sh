@@ -2,8 +2,6 @@
 echo 'Installing K8s Node'
 apt-get update
 apt-get install libseccomp2  # Might be already installed
-wget https://storage.googleapis.com/cri-containerd-release/cri-containerd-1.3.3.linux-amd64.tar.gz
-tar --no-overwrite-dir -C / -xzf cri-containerd-1.3.3.linux-amd64.tar.gz
 mkdir /etc/containerd
 cat << EOF >> /etc/containerd/config.toml
 version = 2
@@ -19,7 +17,7 @@ version = 2
       [plugins."io.containerd.grpc.v1.cri".registry.configs."oss.registry".tls]
         insecure_skip_verify = true
 EOF
-systemctl start containerd
+systemctl restart containerd
 apt-get update && apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 bash -c 'echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list'
