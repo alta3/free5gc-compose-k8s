@@ -25,7 +25,10 @@ spec:
         - name: GIN_MODE
           value: release
         command:
-        - ./nssf -nssfcfg ../config/nssfcfg.yaml
+        - /free5gc/nssf/nssf 
+        args:
+        - -nssfcfg
+        - /free5gc/config/nssfcfg.yaml
         ports:
         - containerPort: 8000
           protocol: TCP
