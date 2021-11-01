@@ -25,7 +25,10 @@ spec:
         - name: GIN_MODE
           value: release
         command:
-        - ./amf -amfcfg ../config/amfcfg.yaml
+        - /free5gc/amf/amf 
+        args:
+        - -amfcfg 
+        - /free5gc/config/amfcfg.yaml
         ports:
         - containerPort: 8000
           protocol: TCP
