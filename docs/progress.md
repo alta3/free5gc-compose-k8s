@@ -5,9 +5,8 @@ This project is still under development.
 In order to contribute, you must:
 
 1. Start with an oss machine (5g flavor)
-2. Follow the first 5 steps of [docs/install-on-k8s.md](docs/install-on-k8s.md)
-
-Step 6 is not currently working as intended. Work that has been done:
+2. Follow the first 5 steps of [docs/install-on-k8s.md](https://github.com/alta3/free5gc-compose-k8s/blob/master/docs/install-on-k8s.md)
+3. Step 6 is not currently working as intended. Work that has been done:
 1. All manifests have been made (deployment, configMaps, and services) - at least, we think so.
 2. SOME of them are working as expected:
 - [x] db-deploy.yaml
