@@ -4,7 +4,7 @@ metadata:        ########v
   name: nrf              # same as with Pod
   labels:               #^
     5gapp: nrf   ########
-spec:                   # New detailes
+spec:                   # New details
   replicas: 1           # How many instances of this pod there should be
   selector:             # How the deployment knows to claim pods (via labels)
     matchLabels:        
