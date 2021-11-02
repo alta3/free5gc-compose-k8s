@@ -1,0 +1,32 @@
+apiVersion: v1   # Always v1 for a kind: Pod
+kind: Pod        # Type of K8s resource we are making
+metadata:        # Information about the Pod
+  name: nrf      # Name of the Pod
+  labels:        # Selectable key value pairs
+    5gapp: nrf   # A key-value pair that can be used to select objects in k8s
+spec:            # Details about how k8s should build the Pod
+  containers:    # List of one or more containers to put in the Pod
+  - name: nrf    # Name we want to give the container
+    image: oss.registry/free5gc-compose-k8s_free5gc-nrf # Container image to use
+    volumeMounts:   # Mapping(s) to volume(s)
+    - name: config  # Arbitrary mapping name to spec.volumes.<volume_name>
+      mountPath: /free5gc/config/ # Path inside container to mount volume to
+    env:        # Any Environmental Vars to include
+    - name: DB_URI
+      value: mongodb://db/free5gc
+    - name: GIN_MODE
+      value: release
+    command:    # Command to run when the container starts
+    - /free5gc/nrf/nrf
+    args:       # Arguments fed to the command being run
+    - -nrfcfg
+    - /free5gc/config/nrfcfg.yaml
+    ports:      # Port(s) that the container is exposing
+    - containerPort: 8000
+      protocol: TCP
+      name: nrf
+  volumes:      # A directory containing data made accessible to the container(s)
+  - name: config # Arbitrary name, must match spec.containers[*].volumeMounts[*].name
+    configMap:  # A type of volume
+      name: nrfcfg # Name of the configMap
+
