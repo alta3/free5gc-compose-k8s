@@ -12,7 +12,7 @@ data:
     configuration:
       amfName: AMF # the name of this AMF
       ngapIpList:  # the IP list of N2 interfaces on this AMF
-        - amf.default.svc.cluster.local
+        - 127.0.0.1
       sbi: # Service-based interface information
         scheme: http # the protocol for sbi (http or https)
         registerIPv4: amf.default.svc.cluster.local # IP used to register to NRF
