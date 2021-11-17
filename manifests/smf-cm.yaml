@@ -43,7 +43,7 @@ data:
                 ipv6: 2001:4860:4860::8888
               ueSubnet: 10.10.0.0/16 # should be CIDR type
       pfcp: # the IP address of N4 interface on this SMF (PFCP)
-        addr: smf.default.svc.cluster.local
+        addr: 127.0.0.1
       ulcl: true
       userplane_information: # list of userplane information
         up_nodes: # information of userplane node (AN or UPF)
