@@ -7,10 +7,11 @@ metadata:
   namespace: default
 spec:
   ports:
-  - port: 8000
+  - nodePort: 32222
+    port: 38412
     protocol: TCP
-    targetPort: 8000
+    targetPort: 38412
   selector:
     5gapp: amf
   sessionAffinity: None
-  type: ClusterIP
+  type: NodePort
