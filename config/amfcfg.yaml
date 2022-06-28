@@ -10,7 +10,7 @@ configuration:
     scheme: http # the protocol for sbi (http or https)
     registerIPv4: amf.free5gc.org # IP used to register to NRF
     bindingIPv4: amf.free5gc.org  # IP used to bind the service
-    port: 8000 # port used to bind the service
+    port: 38412 # port used to bind the service
   serviceNameList: # the SBI services provided by this AMF, refer to TS 29.518
     - namf-comm # Namf_Communication service
     - namf-evts # Namf_EventExposure service
