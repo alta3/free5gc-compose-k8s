@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    5gapp: upfb
+  name: upfb
+  namespace: default
+spec:
+  selector:
+    5gapp: upfb
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+  sessionAffinity: None
+  type: ClusterIP
