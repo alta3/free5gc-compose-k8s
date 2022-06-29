@@ -9,7 +9,7 @@ spec:
   ports:
   - nodePort: 32222
     port: 38412
-    protocol: TCP
+    protocol: SCTP
     targetPort: 38412
   selector:
     5gapp: amf
