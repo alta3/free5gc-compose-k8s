@@ -7,10 +7,11 @@ metadata:
   namespace: default
 spec:
   ports:
-  - port: 5000
+  - nodePort: 31111
+    port: 5000
     protocol: TCP
     targetPort: 5000
   selector:
     5gapp: webui
   sessionAffinity: None
-  type: ClusterIP
+  type: NodePort
