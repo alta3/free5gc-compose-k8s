@@ -8,5 +8,9 @@ metadata:
 spec:
   selector:
     5gapp: upf1
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
   sessionAffinity: None
   type: ClusterIP
