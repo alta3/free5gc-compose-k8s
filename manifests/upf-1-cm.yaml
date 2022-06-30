@@ -14,10 +14,10 @@ data:
       debugLevel: trace 
     
       pfcp:
-        - addr: 127.0.0.1 
+        - addr: pfcp.default.svc.cluster.local 
     
       gtpu:
-        - addr: 127.0.0.1
+        - addr: 0.0.0.0
         # [optional] gtpu.name
         # - name: upf.5gc.nctu.me
         # [optional] gtpu.ifname

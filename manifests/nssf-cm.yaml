@@ -14,7 +14,7 @@ data:
       sbi: # Service-based interface information
         scheme: http # the protocol for sbi (http or https)
         registerIPv4: nssf.default.svc.cluster.local # IP used to register to NRF
-        bindingIPv4: 127.0.0.1  # IP used to bind the service
+        bindingIPv4: 0.0.0.0  # IP used to bind the service
         port: 8000 # Port used to bind the service
       serviceNameList: # the SBI services provided by this SMF, refer to TS 29.531
         - nnssf-nsselection # Nnssf_NSSelection service
@@ -43,57 +43,57 @@ data:
             sst: 1 # Slice/Service Type (uinteger, range: 0~255)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 10
         - snssai: # S-NSSAI of this NSI
             sst: 1 # Slice/Service Type (uinteger, range: 0~255)
             sd: 000001 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 11
         - snssai: # S-NSSAI of this NSI
             sst: 1 # Slice/Service Type (uinteger, range: 0~255)
             sd: 000002 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 12
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 12
         - snssai: # S-NSSAI of this NSI
             sst: 1 # Slice/Service Type (uinteger, range: 0~255)
             sd: 000003 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 13
         - snssai: # S-NSSAI of this NSI
             sst: 2 # Slice/Service Type (uinteger, range: 0~255)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 20
         - snssai: # S-NSSAI of this NSI
             sst: 2 # Slice/Service Type (uinteger, range: 0~255)
             sd: 000001 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 21
         - snssai: # S-NSSAI of this NSI
             sst: 1 # Slice/Service Type (uinteger, range: 0~255)
             sd: 010203 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 22
         - snssai: # S-NSSAI of this NSI
             sst: 1 # Slice/Service Type (uinteger, range: 0~255)
             sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
           nsiInformationList: # Information list of this NSI
             # the NRF to be used to select the NFs/services within the selected NSI, and an optonal ID
-            - nrfId: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+            - nrfId: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
               nsiId: 23
       amfSetList: # List of AMF Sets that my be assigned by this NSSF
         - amfSetId: 1 # the AMF Set identifier
@@ -102,7 +102,7 @@ data:
             - 0e8831c3-6286-4689-ab27-1e2161e15cb1
             - a1fba9ba-2e39-4e22-9c74-f749da571d0d
           # URI of the NRF used to determine the list of candidate AMF(s) from the AMF Set
-          nrfAmfSet: http://127.0.0.1/nnrf-nfm/v1/nf-instances
+          nrfAmfSet: http://nrf.default.svc.cluster.local/nnrf-nfm/v1/nf-instances
           # the Nssai availability data information per TA supported by the AMF
           supportedNssaiAvailabilityData:
             - tai: # Tracking Area Identifier
