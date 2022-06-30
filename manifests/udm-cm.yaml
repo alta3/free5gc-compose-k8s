@@ -18,8 +18,8 @@ data:
         - nudm-pp # Nudm_ParameterProvisionDataManagement service
       sbi: # Service-based interface information
         scheme: http # the protocol for sbi (http or https)
-        registerIPv4: udm.default.svc.cluster.local ; # IP used to register to NRF
-        bindingIPv4: 127.0.0.1  # IP used to bind the service
+        registerIPv4: udm.default.svc.cluster.local # IP used to register to NRF
+        bindingIPv4: 0.0.0.0  # IP used to bind the service
         port: 8000 # Port used to bind the service
         tls: # the local path of TLS key
           log: free5gc/udmsslkey.log # UDM keylog
