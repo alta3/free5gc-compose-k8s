@@ -21,7 +21,7 @@ data:
       gtpu:
         # The IP list of interface N3 (This UPF to RAN CU)  OR  interface N9 (This UPF to another UPF)
         # If there are multiple connections, set addr to 0.0.0.0 or list all the addresses
-        - addr: 0.0.0.0
+        - addr: 127.0.0.1
         # [optional] gtpu.name
         # - name: upf.5gc.nctu.me
         # [optional] gtpu.ifname
