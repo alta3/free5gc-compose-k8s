@@ -11,16 +11,19 @@ data:
     
     configuration:
       # debugLevel: panic|fatal|error|warn|info|debug|trace
-      debugLevel: trace 
-      
-      # The listen IP and nodeID of the N4 interface (this UPF to SMF) (Can't set to 0.0.0.0)
+      debugLevel: info
+
+      # The listen IP and nodeID of the N4 interface
+      # N4 = (this UPF to SMF)
+      # (Can't set to 0.0.0.0)
       pfcp:
-        # - addr: pfcp.default.svc.cluster.local
-        - 127.0.0.1
-    
+        - addr: 127.0.0.1 
+
+      # List of N3/N9 IP Addresses
+      # N3 = (This UPF to RAN CU)
+      # N9 = (This UPF to another UPF)
+      # OK to set addr to 0.0.0.0 = (all addresses)
       gtpu:
-        # The IP list of interface N3 (This UPF to RAN CU)  OR  interface N9 (This UPF to another UPF)
-        # If there are multiple connections, set addr to 0.0.0.0 or list all the addresses
         - addr: 127.0.0.1
         # [optional] gtpu.name
         # - name: upf.5gc.nctu.me
@@ -29,10 +32,10 @@ data:
     
       dnn_list:
         - dnn: internet
-          cidr: 60.60.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
+          cidr: 60.60.0.0/16
           # [optional] apn_list[*].natifname
           # natifname: eth0
         - dnn: internet2
-          cidr: 10.111.1.0/24 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
+          cidr: 10.10.0.0/16
           # [optional] apn_list[*].natifname
           # natifname: eth0
